@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floriscan — Flower Species Recognition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Burmese">မြန်မာ</button>
+            <div class="vine vine-top" aria-hidden="true">
+                <span>🌿</span><span>🌸</span><span>🍃</span><span>🌼</span><span>🌿</span>
+                <span>🌷</span><span>🍃</span><span>🌻</span><span>🌿</span><span>🌺</span>
+            </div>
+            <div class="logo">
+                <span class="logo-badge" aria-hidden="true">
+                    <i class="fas fa-seedling"></i>
+                </span>
+                <h1>Floriscan</h1>
+            </div>
+            <p class="subtitle" data-i18n="subtitle">recognize flowers, then their bloom</p>
+        </header>
+
+        <main>
+            <div class="banner" id="status-banner" aria-live="polite">Checking model status…</div>
+
+            <section class="upload-section">
+                <h2><i class="fas fa-camera"></i> <span data-i18n="uploadTitle">Bring a bloom into the garden</span></h2>
+                <p class="instruction" data-i18n="instruction">Drop one clear photo of a single flower.</p>
+
+                <div class="upload-container">
+                    <div class="upload-box" id="flower-upload">
+                        <div class="upload-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 data-i18n="flowerPhoto">Flower photo</h3>
+                        <p data-i18n="dropHint">Drag and drop, or click to choose</p>
+                        <input type="file" id="flower-image" accept="image/*" hidden>
+                        <button type="button" class="upload-btn" id="upload-btn">
+                            <i class="fas fa-leaf"></i> <span data-i18n="choosePhoto">Choose photo</span>
+                        </button>
+                        <div class="preview" id="flower-preview"></div>
+                    </div>
+                </div>
+
+                <button type="button" class="analyze-btn" id="analyze-btn" disabled>
+                    <i class="fas fa-seedling"></i> <span data-i18n="analyze">Analyze flower</span>
+                </button>
+            </section>
+
+            <section class="results-section" id="results-section" hidden>
+                <h2><i class="fas fa-binoculars"></i> <span data-i18n="resultsTitle">What the garden sees</span></h2>
+
+                <div class="diagnosis-card" id="diagnosis-card">
+                    <div class="diagnosis-icon" id="diagnosis-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="diagnosis-info">
+                        <h3 id="diagnosis-title">Species</h3>
+                        <p id="diagnosis-text">Waiting…</p>
+                    </div>
+                </div>
+
+                <div class="stage-card" id="stage-card" hidden>
+                    <div class="stage-header">
+                        <i class="fas fa-leaf"></i>
+                        <h3 data-i18n="stageHeading">Blooming stage</h3>
+                    </div>
+                    <p id="stage-text">Not available yet</p>
+                    <div class="probability-bar">
+                        <div class="probability-fill" id="stage-progress"></div>
+                    </div>
+                    <div class="stage-bars" id="stage-bars"></div>
+                </div>
+
+                <h3 class="grid-title"><i class="fas fa-fan"></i> <span data-i18n="probsTitle">Species probabilities</span></h3>
+                <div class="results-grid" id="species-grid"></div>
+
+                <div class="recommendations-section">
+                    <h3><i class="fas fa-heart"></i> <span data-i18n="tipsTitle">Care tips</span></h3>
+                    <ul id="tips-list"></ul>
+                </div>
+
+                <button type="button" class="new-analysis-btn" id="reset-btn">
+                    <i class="fas fa-redo"></i> <span data-i18n="newAnalysis">New analysis</span>
+                </button>
+            </section>
+
+            <div class="loading" id="loading" hidden>
+                <div class="spinner"></div>
+                <p data-i18n="recognizing">Recognizing the flower…</p>
+                <p class="loading-sub" data-i18n="lookingClosely">The garden is looking closely</p>
+            </div>
+        </main>
+
+        <footer>
+            <p data-i18n="footer">Floriscan — You bloom most beautifully when you choose yourself every day.</p>
+            <p class="disclaimer" data-i18n="disclaimer">Educational computer-vision project. Confirm plant identity before using care advice.</p>
+        </footer>
+    </div>
+
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

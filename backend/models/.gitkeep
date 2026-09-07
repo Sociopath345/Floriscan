@@ -1,0 +1,4 @@
+# Trained weight files are not stored in git.
+# Place them here after training:
+#   floriscan_species.pth   (required for real species predictions)
+#   floriscan_stage.pth     (optional; blooming-stage cascade)

@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+kaggle.json
+*.pth
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/models/*.pth
+data/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+.cursor/
